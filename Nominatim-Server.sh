@@ -14,7 +14,7 @@ NM_USER='ntim';	#nominatim website
 NM_PG_PASS=$(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c32);
 HNAME=$(hostname -f)
 
-PG_VER='14'
+PG_VER='16'
 PGIS_VER='3'
 
 function install_postgresql(){
@@ -68,13 +68,13 @@ CMD_EOF
 }
 
 function install_prerequisites(){
-    apt-get install -y build-essential cmake g++ libboost-dev libboost-system-dev \
+    apt-get install -y build-essential cmake g++ libboost-dev libboost-system-dev upzip \
         libboost-filesystem-dev libexpat1-dev zlib1g-dev libxml2-dev\
         libbz2-dev libpq-dev liblua5.3-dev lua5.3 libgeos-dev libgeos++-dev libproj-dev \
         postgresql-server-dev-${PG_VER} postgresql-${PG_VER}-postgis-${PGIS_VER} postgresql-contrib-${PG_VER} \
         apache2 php php-{cgi,cli,intl,pgsql,pear,db} libapache2-mod-php \
 				libicu-dev python3-{dotenv,psycopg2,psutil,jinja2,icu,datrie,sqlalchemy,asyncpg} \
-        git python-pip python3-pyosmium osmosis libboost-python-dev nlohmann-json3-dev
+        git python3-pip python3-pyosmium osmosis libboost-python-dev nlohmann-json3-dev
 }
 
 function install_nominatim(){
