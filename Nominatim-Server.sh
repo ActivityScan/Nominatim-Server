@@ -68,7 +68,7 @@ CMD_EOF
 }
 
 function install_prerequisites(){
-    apt-get install -y build-essential cmake g++ libboost-dev libboost-system-dev upzip \
+    apt-get install -y build-essential cmake g++ libboost-dev libboost-system-dev unzip \
         libboost-filesystem-dev libexpat1-dev zlib1g-dev libxml2-dev\
         libbz2-dev libpq-dev liblua5.3-dev lua5.3 libgeos-dev libgeos++-dev libproj-dev \
         postgresql-server-dev-${PG_VER} postgresql-${PG_VER}-postgis-${PGIS_VER} postgresql-contrib-${PG_VER} \
